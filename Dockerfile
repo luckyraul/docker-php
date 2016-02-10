@@ -1,4 +1,4 @@
-FROM mygento:puppet
+FROM mygento/puppet
 
 MAINTAINER nikita@mygento.ru
 
