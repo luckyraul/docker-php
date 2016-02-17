@@ -1,0 +1,6 @@
+---
+classes:
+    - 'php'
+
+php::packages: ['mysql','mcrypt','intl','curl','gd','geoip','xsl']
+ 
