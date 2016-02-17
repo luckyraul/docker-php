@@ -13,3 +13,4 @@ php::fpm::pools:
     www:
         params:
             listen: '[::]:9000'
+            clear_env: 'no'
