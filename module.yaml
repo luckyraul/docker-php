@@ -3,4 +3,5 @@ classes:
     - 'php'
 
 php::packages: ['mysql','mcrypt','intl','curl','gd','geoip','xsl']
- 
+php::fpm_service_ensure: 'stopped'
+php::fpm_service_enable: false
