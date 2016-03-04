@@ -1,2 +1,24 @@
-script:
-  - true
+env:
+  matrix:
+    - PHP_VERSION='5.5'
+    - PHP_VERSION='5.6'
+    - PHP_VERSION='7.0'
+build:
+  pre_ci:
+    - sed -i -e s/PHP_VERSION/${PHP_VERSION}/g module.yaml
+    - cat module.yaml
+    - if [[ $PHP_VERSION == '5.5' ]]; then docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/php:$PHP_VERSION Dockerfile_wheezy; fi
+    - if [[ $PHP_VERSION != '5.5' ]]; then docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/php:$PHP_VERSION .; fi
+  pre_ci_boot:
+    image_name: mygento/php
+    image_tag: $PHP_VERSION
+    pull: false
+  ci:
+     - php -v
+  post_ci:
+    - sudo docker push mygento/php:$PHP_VERSION
+
+integrations:
+    hub:
+      - integrationName: Docker
+        type: docker

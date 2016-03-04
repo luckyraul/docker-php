@@ -1,4 +1,4 @@
-FROM mygento/puppet:latest
+FROM mygento/puppet:wheezy
 
 MAINTAINER nikita@mygento.ru
 
