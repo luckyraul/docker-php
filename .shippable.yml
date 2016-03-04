@@ -7,7 +7,7 @@ build:
   pre_ci:
     - sed -i -e s/PHP_VERSION/${PHP_VERSION}/g module.yaml
     - cat module.yaml
-    - if [[ $PHP_VERSION == '5.5' ]]; then docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/php:$PHP_VERSION Dockerfile_wheezy; fi
+    - if [[ $PHP_VERSION == '5.5' ]]; then docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/php:$PHP_VERSION wheezy; fi
     - if [[ $PHP_VERSION != '5.5' ]]; then docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/php:$PHP_VERSION .; fi
   pre_ci_boot:
     image_name: mygento/php
