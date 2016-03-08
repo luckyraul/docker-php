@@ -15,10 +15,11 @@ build:
     pull: false
   ci:
      - php -v
-  post_ci:
-    - sudo docker push mygento/php:$PHP_VERSION
+  push:
+    - docker push mygento/php:$PHP_VERSION
 
 integrations:
     hub:
       - integrationName: Docker
         type: docker
+        agent_only: true
