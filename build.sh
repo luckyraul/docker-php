@@ -1,6 +1,6 @@
 #/bin/bash
 sed -i -e s/PHP_VERSION/${PHP_VERSION}/g module.yaml
-sed -i -e s/PHP_VERSION/${PHP_VERSION}/g wheezy/.yaml
+sed -i -e s/PHP_VERSION/${PHP_VERSION}/g wheezy/module.yaml
 sed -i -e s/PHP_VERSION/${PHP_VERSION}/g fpm/module.yaml
 DR = "--rm=true --pull=true --force-rm=true --no-cache=true"
 if[ $PHP_FPM -eq 1]
