@@ -6,9 +6,9 @@ env:
     - PHP_VERSION='5.6' PHP_FPM=true
     - PHP_VERSION='7.0' PHP_FPM=false
     - PHP_VERSION='7.0' PHP_FPM=true
-    allow_failures:
-      - PHP_VERSION='5.5' PHP_FPM=false
-      - PHP_VERSION='5.5' PHP_FPM=true
+  allow_failures:
+    - PHP_VERSION='5.5' PHP_FPM=false
+    - PHP_VERSION='5.5' PHP_FPM=true
 build:
   pre_ci:
     - chmod +x ./build.sh && ./build.sh
