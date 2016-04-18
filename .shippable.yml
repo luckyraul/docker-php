@@ -11,7 +11,7 @@ env:
     - PHP_VERSION='5.5' PHP_FPM=true
 build:
   pre_ci:
-    if [[ "$PHP_FPM" = "true" ]]; then echo 'FPM version';PHP_COMB="$PHP_VERSION-fpm"; else echo 'CLI version'; PHP_COMB="$PHP_VERSION";fi;
+    - if [[ "$PHP_FPM" = "true" ]]; then echo 'FPM version';PHP_COMB="$PHP_VERSION-fpm"; else echo 'CLI version'; PHP_COMB="$PHP_VERSION";fi;
     - chmod +x ./build.sh && ./build.sh
   pre_ci_boot:
     image_name: mygento/php
