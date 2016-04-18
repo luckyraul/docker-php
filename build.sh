@@ -6,22 +6,20 @@ sed -i -e s/PHP_VERSION/${PHP_VERSION}/g wheezy/fpm/module.yaml
 DR="--rm=true --pull=true --force-rm=true --no-cache=true"
 if [[ "$PHP_FPM" = "true" ]]; then
     echo 'FPM version'
-    PHP_COMB="$PHP_VERSION-fpm"
 else
     echo 'CLI version'
-    PHP_COMB="$PHP_VERSION"
 fi;
 if [[ $PHP_VERSION = '5.5' ]]; then
     if [[ "$PHP_FPM" = "true" ]]; then
-        docker build $DR --tag=mygento/php:$PHP_VERSION-fpm wheezy/fpm
+        docker build $DR --tag=mygento/php:$PHP_TAG wheezy/fpm
     else
-        docker build $DR --tag=mygento/php:$PHP_VERSION wheezy
+        docker build $DR --tag=mygento/php:$PHP_TAG wheezy
     fi;
 fi;
 if [[ $PHP_VERSION != '5.5' ]]; then
     if [[ "$PHP_FPM" = "true" ]]; then
-        docker build $DR --tag=mygento/php:$PHP_VERSION-fpm fpm
+        docker build $DR --tag=mygento/php:$PHP_TAG fpm
     else
-        docker build $DR --tag=mygento/php:$PHP_VERSION .
+        docker build $DR --tag=mygento/php:$PHP_TAG .
     fi
 fi

@@ -1,26 +1,25 @@
 env:
   matrix:
-    - PHP_VERSION='5.5' PHP_FPM=false
-    - PHP_VERSION='5.5' PHP_FPM=true
-    - PHP_VERSION='5.6' PHP_FPM=false
-    - PHP_VERSION='5.6' PHP_FPM=true
-    - PHP_VERSION='7.0' PHP_FPM=false
-    - PHP_VERSION='7.0' PHP_FPM=true
+    - PHP_VERSION='5.5' PHP_FPM=false PHP_TAG='5.5'
+    - PHP_VERSION='5.5' PHP_FPM=true  PHP_TAG='5.5-fpm'
+    - PHP_VERSION='5.6' PHP_FPM=false PHP_TAG='5.6'
+    - PHP_VERSION='5.6' PHP_FPM=true  PHP_TAG='5.6-fpm'
+    - PHP_VERSION='7.0' PHP_FPM=false PHP_TAG='7.0'
+    - PHP_VERSION='7.0' PHP_FPM=true  PHP_TAG='7.0-fpm'
   allow_failures:
-    - PHP_VERSION='5.5' PHP_FPM=false
-    - PHP_VERSION='5.5' PHP_FPM=true
+    - PHP_VERSION='5.5' PHP_FPM=false PHP_TAG='5.5'
+    - PHP_VERSION='5.5' PHP_FPM=true  PHP_TAG='5.5-fpm'
 build:
   pre_ci:
-    - if [[ "$PHP_FPM" = "true" ]]; then echo 'FPM version';export PHP_COMB="$PHP_VERSION-fpm"; else echo 'CLI version';export PHP_COMB="$PHP_VERSION";fi;
     - chmod +x ./build.sh && ./build.sh
   pre_ci_boot:
     image_name: mygento/php
-    image_tag: $PHP_COMB
+    image_tag: $PHP_TAG
     pull: false
   ci:
      - php -v
   post_ci:
-    - docker push mygento/php:$PHP_COMB
+    - docker push mygento/php:$PHP_TAG
 integrations:
     hub:
       - integrationName: Docker
