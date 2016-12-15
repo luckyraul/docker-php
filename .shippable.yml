@@ -1,14 +1,9 @@
 env:
   matrix:
-    - PHP_VERSION='5.5' PHP_FPM=false PHP_TAG='5.5'
-    - PHP_VERSION='5.5' PHP_FPM=true  PHP_TAG='5.5-fpm'
     - PHP_VERSION='5.6' PHP_FPM=false PHP_TAG='5.6'
     - PHP_VERSION='5.6' PHP_FPM=true  PHP_TAG='5.6-fpm'
     - PHP_VERSION='7.0' PHP_FPM=false PHP_TAG='7.0'
     - PHP_VERSION='7.0' PHP_FPM=true  PHP_TAG='7.0-fpm'
-  allow_failures:
-    - PHP_VERSION='5.5' PHP_FPM=false PHP_TAG='5.5'
-    - PHP_VERSION='5.5' PHP_FPM=true  PHP_TAG='5.5-fpm'
 build:
   pre_ci:
     - chmod +x ./build.sh && ./build.sh
@@ -20,8 +15,9 @@ build:
      - php -v
   post_ci:
     - docker push mygento/php:$PHP_TAG
+
 integrations:
     hub:
       - integrationName: Docker
         type: docker
-        #agent_only: true
+        agent_only: true
