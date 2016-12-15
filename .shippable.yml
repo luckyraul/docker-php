@@ -13,7 +13,7 @@ build:
     pull: false
   ci:
      - php -v
-  post_ci:
+  push:
     - docker push mygento/php:$PHP_TAG
 
 integrations:
