@@ -1,4 +1,4 @@
-FROM mygento/puppet:latest
+FROM mygento/php:PHP_VERSION
 
 MAINTAINER nikita@mygento.ru
 
