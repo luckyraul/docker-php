@@ -4,6 +4,11 @@ classes:
 php::version: 'PHP_VERSION'
 php::dev: true
 php::pear: true
+php::extenstions:
+  redis:
+    provider: 'pecl'
+    ensure: '2.2.8'
+
 php::packages: ['mysql','mcrypt','intl','curl','gd','geoip','xsl']
 php::fpm_service_ensure: 'stopped'
 php::fpm_service_enable: false
