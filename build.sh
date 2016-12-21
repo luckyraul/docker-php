@@ -8,7 +8,6 @@ fi;
 
 if [[ "$PHP_FPM" = "true" ]]; then
     sed -i -e s/PHP_VERSION/${PHP_VERSION}/g fpm/module.yaml
-    sed -i -e s/PHP_VERSION/${PHP_VERSION}/g fpm/Dockerfile
     docker build $DR --tag=mygento/php:$PHP_TAG fpm
 else
     sed -i -e s/PHP_VERSION/${PHP_VERSION}/g module.yaml

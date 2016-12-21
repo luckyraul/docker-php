@@ -1,4 +1,4 @@
-FROM mygento/php:PHP_VERSION
+FROM mygento/puppet:jessie
 
 MAINTAINER nikita@mygento.ru
 
