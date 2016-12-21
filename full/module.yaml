@@ -4,7 +4,7 @@ classes:
 php::version: 'PHP_VERSION'
 php::dev: true
 php::pear: true
-php::extenstions:
+php::extensions:
   redis:
     provider: 'pecl'
     ensure: '2.2.8'
