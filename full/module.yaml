@@ -4,6 +4,8 @@ classes:
 php::version: 'PHP_VERSION'
 php::dev: true
 php::pear: true
+php::newrelic: true
+php::ioncube: true
 php::extensions:
   redis:
     provider: 'pecl'
