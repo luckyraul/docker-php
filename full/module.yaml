@@ -11,7 +11,7 @@ php::extensions:
     provider: 'pecl'
     ensure: '2.2.8'
 
-php::packages: ['mysql','mcrypt','intl','curl','gd','geoip','xsl']
+php::packages: ['mysql','mcrypt','intl','curl','gd','geoip','xsl','imagick']
 php::fpm_service_ensure: 'stopped'
 php::fpm_service_enable: false
 php::fpm_service_settings:
