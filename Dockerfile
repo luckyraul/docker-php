@@ -4,3 +4,5 @@ MAINTAINER nikita@mygento.ru
 
 EXPOSE 9000
 CMD ["php", "-a"]
+
+USER www-data
