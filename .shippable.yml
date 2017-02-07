@@ -14,7 +14,8 @@ build:
     image_tag: $PHP_TAG
     pull: false
   ci:
-     - php -v
+    - cat /var/lib/hiera/common.yaml
+    - php -v
   push:
     - docker push mygento/php:$PHP_TAG
 
