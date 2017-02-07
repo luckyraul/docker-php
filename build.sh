@@ -10,6 +10,16 @@ else
     echo 'CLI version'
 fi;
 
+if [[ "$PHP_VERSION" = "7.0" ]]; then
+  sed -i -e s/PHP_REPOS/true/g fpm/module.yaml
+  sed -i -e s/PHP_REPOS/true/g full/module.yaml
+  sed -i -e s/PHP_REPOS/true/g module.yaml
+else
+  sed -i -e s/PHP_REPOS/false/g fpm/module.yaml
+  sed -i -e s/PHP_REPOS/false/g full/module.yaml
+  sed -i -e s/PHP_REPOS/false/g module.yaml
+fi
+
 if [[ "$PHP_FPM" = "true" ]]; then
     sed -i -e s/PHP_VERSION/${PHP_VERSION}/g fpm/module.yaml
     if [[ "$PHP_FULL" = "true" ]]; then

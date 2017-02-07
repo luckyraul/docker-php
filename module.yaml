@@ -2,5 +2,6 @@
 classes:
     - 'php'
 php::version: 'PHP_VERSION'
+php::manage_repos: PHP_REPOS
 php::packages: ['mysql','mcrypt','intl','curl','gd','geoip','xsl']
 php::fpm: false
