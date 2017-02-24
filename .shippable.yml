@@ -1,5 +1,3 @@
-language: ruby
-
 env:
   matrix:
     - PHP_VERSION='7.0' PHP_FPM=false PHP_FULL=false PHP_TAG='7.0'
@@ -10,6 +8,7 @@ env:
     - PHP_VERSION='5.6' PHP_FPM=true  PHP_FULL=true  PHP_TAG='5.6-full'
 build:
   pre_ci:
+    - apt-get install ruby
     - gem install puppet
     - puppet module install puppetlabs/image_build
     - puppet docker build --image-name mygento/php:$PHP_TAG
