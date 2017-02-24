@@ -1,6 +1,7 @@
 forge "https://forgeapi.puppetlabs.com"
 
 mod 'puppetlabs/dummy_service'
+mod 'puppet/staging'
 mod 'puppetlabs/stdlib'
 mod 'puppetlabs/apt'
 mod 'puppetlabs/inifile'
