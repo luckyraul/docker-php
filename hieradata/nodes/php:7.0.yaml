@@ -1,0 +1,3 @@
+php::globals::php_version: '7.0'
+php::manage_repos: true
+php::fpm: false
