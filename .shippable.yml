@@ -1,14 +1,18 @@
 env:
   matrix:
-    - PHP_VERSION='5.6' PHP_FPM=false PHP_FULL=false PHP_TAG='5.6'
-    - PHP_VERSION='5.6' PHP_FPM=true  PHP_FULL=false PHP_TAG='5.6-fpm'
-    - PHP_VERSION='5.6' PHP_FPM=true  PHP_FULL=true  PHP_TAG='5.6-full'
     - PHP_VERSION='7.0' PHP_FPM=false PHP_FULL=false PHP_TAG='7.0'
     - PHP_VERSION='7.0' PHP_FPM=true  PHP_FULL=false PHP_TAG='7.0-fpm'
     - PHP_VERSION='7.0' PHP_FPM=true  PHP_FULL=true  PHP_TAG='7.0-full'
+    - PHP_VERSION='5.6' PHP_FPM=false PHP_FULL=false PHP_TAG='5.6'
+    - PHP_VERSION='5.6' PHP_FPM=true  PHP_FULL=false PHP_TAG='5.6-fpm'
+    - PHP_VERSION='5.6' PHP_FPM=true  PHP_FULL=true  PHP_TAG='5.6-full'
 build:
   pre_ci:
-    - chmod +x ./build.sh && ./build.sh
+    - apt-get install ruby
+    - gem install puppet
+    - puppet module install puppetlabs/image_build
+    - sed -ie 's/--show_diff//g' /etc/puppetlabs/code/modules/image_build/templates/Dockerfile.erb
+    - puppet docker build --image-name mygento/php:$PHP_TAG
   pre_ci_boot:
     image_name: mygento/php
     image_tag: $PHP_TAG

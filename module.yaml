@@ -1,6 +1,0 @@
----
-classes:
-    - 'php'
-php::version: 'PHP_VERSION'
-php::packages: ['mysql','mcrypt','intl','curl','gd','geoip','xsl']
-php::fpm: false

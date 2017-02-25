@@ -1,0 +1,9 @@
+php::globals::php_version: '5.6'
+php::manage_repos: false
+php::dev: true
+php::pear: true
+php::ioncube: true
+php::extensions:
+  redis:
+    provider: 'pecl'
+    ensure: '3.1.1'

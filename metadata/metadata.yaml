@@ -1,0 +1,7 @@
+from: debian:jessie-slim
+cmd: php -a
+maintainer: nikita@mygento.ru
+expose: 9000
+inventory: false
+env:
+  - DEBIAN_FRONTEND=noninteractive
