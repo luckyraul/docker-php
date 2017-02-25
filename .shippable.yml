@@ -18,8 +18,8 @@ build:
     image_tag: $PHP_TAG
     pull: false
   ci:
-    - php -v
-    - php -m
+     - php -v
+     - php -m
   push:
     - docker push mygento/php:$PHP_TAG
 
