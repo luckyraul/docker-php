@@ -12,7 +12,6 @@ build:
     - gem install puppet
     - puppet module install puppetlabs/image_build
     - sed -ie 's/--show_diff//g' /etc/puppetlabs/code/modules/image_build/templates/Dockerfile.erb
-    - sed -ie 's/--verbose/--debug/g' /etc/puppetlabs/code/modules/image_build/templates/Dockerfile.erb
     - puppet docker build --image-name mygento/php:$PHP_TAG
   pre_ci_boot:
     image_name: mygento/php
