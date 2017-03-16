@@ -1,2 +1,5 @@
 php::globals::php_version: '5.6'
 php::manage_repos: true
+php::settings:
+  'PHP':
+    'max_input_vars': 5000
