@@ -6,6 +6,9 @@ env:
     - PHP_VERSION='7.0' PHP_FPM=true  PHP_FULL=false PHP_TAG='7.0-fpm'
     - PHP_VERSION='5.6' PHP_FPM=false PHP_FULL=false PHP_TAG='5.6'
     - PHP_VERSION='7.0' PHP_FPM=false PHP_FULL=false PHP_TAG='7.0'
+    - PHP_VERSION='7.1' PHP_FPM=false PHP_FULL=false PHP_TAG='7.1'
+    - PHP_VERSION='7.1' PHP_FPM=true  PHP_FULL=false PHP_TAG='7.1-fpm'
+    - PHP_VERSION='7.1' PHP_FPM=true  PHP_FULL=true  PHP_TAG='7.1-true'
 build:
   pre_ci:
     - apt-get install -qqy ruby
