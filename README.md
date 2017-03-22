@@ -12,3 +12,11 @@ Docker image for PHP system's
 7.0-fpm [![](https://images.microbadger.com/badges/image/mygento/php:7.0-fpm.svg)](https://microbadger.com/images/mygento/php:7.0-fpm)
 
 7.0-full [![](https://images.microbadger.com/badges/image/mygento/php:7.0-full.svg)](https://microbadger.com/images/mygento/php:7.0-full)
+
+
+
+7.1 [![](https://images.microbadger.com/badges/image/mygento/php:7.1.svg)](https://microbadger.com/images/mygento/php:7.1)
+
+7.1-fpm [![](https://images.microbadger.com/badges/image/mygento/php:7.1-fpm.svg)](https://microbadger.com/images/mygento/php:7.1-fpm)
+
+7.1-full [![](https://images.microbadger.com/badges/image/mygento/php:7.1-full.svg)](https://microbadger.com/images/mygento/php:7.1-full)
