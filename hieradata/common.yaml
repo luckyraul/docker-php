@@ -9,7 +9,10 @@ php::fpm_service_enable: false
 php::fpm_service_settings:
     global:
         daemonize: false
+        error_log: '/proc/self/fd/2'
 
 php::fpm::pools:
     www:
       listen: '[::]:9000'
+      catch_workers_output: 'yes'
+      access_log: '/proc/self/fd/2'
