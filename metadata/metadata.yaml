@@ -3,5 +3,6 @@ cmd: php -a
 maintainer: nikita@mygento.ru
 expose: 9000
 inventory: false
+entrypoint: '/entrypoint.sh'
 env:
   - DEBIAN_FRONTEND=noninteractive

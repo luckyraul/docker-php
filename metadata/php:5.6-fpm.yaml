@@ -1,2 +1,2 @@
 image_name: mygento/php:5.6-fpm
-cmd: php-fpm
+cmd: php5-fpm
