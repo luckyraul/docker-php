@@ -3,6 +3,7 @@ php::manage_repos: true
 php::dev: true
 php::pear: true
 php::ioncube: true
+php::newrelic: true
 php::extensions:
   redis:
     provider: 'pecl'
