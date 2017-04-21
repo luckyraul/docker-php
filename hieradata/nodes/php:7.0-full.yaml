@@ -7,7 +7,7 @@ php::newrelic: true
 php::extensions:
   redis:
     provider: 'pecl'
-    ensure: '3.1.1'
+    ensure: '3.1.2'
 php::settings:
   'PHP':
     'max_input_vars': 5000
