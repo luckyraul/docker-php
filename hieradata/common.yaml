@@ -3,7 +3,7 @@ classes:
     - 'php'
     - 'php::globals'
 php::docker: true
-php::packages: ['mysql','mcrypt','intl','curl','gd','geoip','xsl']
+php::packages: ['mysql','mbstring','mcrypt','json','intl','curl','gd','geoip','xsl', 'zip']
 php::fpm_service_ensure: 'stopped'
 php::fpm_service_enable: false
 php::fpm_service_settings:
