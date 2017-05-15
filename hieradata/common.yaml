@@ -7,9 +7,8 @@ php::packages: ['mysql','mbstring','mcrypt','json','intl','curl','gd','geoip','x
 php::fpm_service_ensure: 'stopped'
 php::fpm_service_enable: false
 php::fpm_service_settings:
-    global:
-        daemonize: false
-        error_log: '/proc/self/fd/2'
+    daemonize: 'no'
+    error_log: '/proc/self/fd/2'
 
 php::fpm::pools:
     www:
