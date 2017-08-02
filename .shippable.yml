@@ -17,8 +17,7 @@ build:
     - source /usr/local/rvm/scripts/rvm
     - gem install puppet --no-ri --no-rdoc
     - puppet module install puppetlabs/image_build
-    - sed -ie 's/--show_diff//g' /etc/puppetlabs/code/modules/image_build/templates/Dockerfile.erb
-    - puppet docker build --image-name mygento/php:$PHP_TAG
+    - puppet docker build --image-name mygento/php:$PHP_TAG --no-show-diff
   pre_ci_boot:
     image_name: mygento/php
     image_tag: $PHP_TAG
