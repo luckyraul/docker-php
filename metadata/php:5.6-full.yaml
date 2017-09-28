@@ -1,3 +1,4 @@
+from: debian:jessie-slim
 image_name: mygento/php:5.6-full
 cmd: php5-fpm
 env:

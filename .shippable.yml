@@ -30,6 +30,8 @@ build:
      - php -m
   push:
     - docker push mygento/php:$PHP_TAG
+    - docker tag mygento/php:$PHP_TAG luckyraul/php:$PHP_TAG
+    - docker push luckyraul/php:$PHP_TAG
 
 integrations:
     hub:

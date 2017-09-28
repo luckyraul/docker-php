@@ -1,2 +1,3 @@
+from: debian:jessie-slim
 image_name: mygento/php:7.0
 cmd: php -a
