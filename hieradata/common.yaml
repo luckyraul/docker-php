@@ -16,3 +16,6 @@ php::fpm::pools:
       catch_workers_output: 'yes'
       access_log: '/proc/self/fd/2'
       clear_env: 'no'
+      php_value:
+        upload_max_filesize: '40M'
+        post_max_size: '42M'
