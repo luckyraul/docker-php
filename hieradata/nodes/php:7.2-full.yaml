@@ -3,7 +3,7 @@ php::packages: ['mysql','mbstring','json','intl','curl','gd','geoip','xsl', 'zip
 php::manage_repos: true
 php::dev: true
 php::pear: true
-php::ioncube: false #not supported yet
+php::ioncube: true
 php::newrelic: false  #not supported yet
 php::extensions:
   redis:
