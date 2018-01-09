@@ -1,4 +1,3 @@
-from: debian:jessie-slim
 image_name: mygento/php:7.0-full
 cmd: php-fpm7.0
 env:
