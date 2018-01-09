@@ -1,17 +1,17 @@
 env:
   matrix:
-    - PHP_TAG='5.6-full'
+    - PHP_TAG='7.1-full'
     - PHP_TAG='7.0-full'
-    - PHP_TAG='5.6-fpm'
-    - PHP_TAG='7.0-fpm'
-    - PHP_TAG='5.6'
-    - PHP_TAG='7.0'
     - PHP_TAG='7.1'
     - PHP_TAG='7.1-fpm'
-    - PHP_TAG='7.1-full'
+    - PHP_TAG='7.0'
+    - PHP_TAG='7.0-fpm'
     - PHP_TAG='7.2'
     - PHP_TAG='7.2-fpm'
     - PHP_TAG='7.2-full'
+    - PHP_TAG='5.6'
+    - PHP_TAG='5.6-fpm'
+    - PHP_TAG='5.6-full'
 build:
   pre_ci:
     - apt-get install -qqy curl
