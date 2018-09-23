@@ -1,0 +1,6 @@
+php::globals::php_version: '7.3'
+php::packages: ['mysql','mbstring','json','intl','curl','gd','geoip','xsl', 'zip','bcmath','soap']
+php::manage_repos: true
+php::settings:
+  'PHP':
+    'max_input_vars': 5000
