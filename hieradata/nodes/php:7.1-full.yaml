@@ -1,4 +1,5 @@
 php::globals::php_version: '7.1'
+php::packages: ['mysql','mcrypt','mbstring','json','intl','curl','gd','geoip','xsl','zip','bcmath','soap','imagick']
 php::manage_repos: true
 php::dev: true
 php::pear: true
@@ -7,7 +8,7 @@ php::newrelic: true
 php::extensions:
   redis:
     provider: 'pecl'
-    ensure: '3.1.6'
+    ensure: '4.1.1'
 php::settings:
   'PHP':
     'max_input_vars': 5000

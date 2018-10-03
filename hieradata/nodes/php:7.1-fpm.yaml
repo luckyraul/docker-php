@@ -1,4 +1,5 @@
 php::globals::php_version: '7.1'
+php::packages: ['mysql','mcrypt','mbstring','json','intl','curl','gd','geoip','xsl','zip','bcmath','soap','imagick']
 php::manage_repos: true
 php::settings:
   'PHP':
