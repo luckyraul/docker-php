@@ -22,7 +22,7 @@ build:
     - gpg --keyserver hkp://keys.gnupg.net --recv-keys 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
     - curl -sSL https://get.rvm.io | grep -v __rvm_print_headline | bash -s stable --ruby
     - source /usr/local/rvm/scripts/rvm
-    - gem install puppet --no-ri --no-rdoc
+    - gem install puppet --no-document
     - puppet module install puppetlabs/image_build
     - puppet docker build --image-name mygento/php:$PHP_TAG --no-show-diff
   pre_ci_boot:
