@@ -5,6 +5,8 @@ php::pear: true
 php::ioncube: true
 php::newrelic: true
 php::extensions:
+  xdebug:
+    prefix: 'php-'
   redis:
     provider: 'pecl'
     ensure: '4.3.0'
