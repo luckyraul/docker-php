@@ -1,2 +1,2 @@
+from: debian:stretch-slim
 image_name: mygento/php:7.2
-cmd: php -a
