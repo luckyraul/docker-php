@@ -4,3 +4,4 @@ env:
   - DEBIAN_FRONTEND=noninteractive
   - NR_INSTALL_KEY=''
   - NR_INSTALL_APP='PHP Application'
+  - CODENAME=stretch
