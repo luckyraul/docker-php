@@ -24,7 +24,8 @@ build:
     - curl -sSL https://get.rvm.io | grep -v __rvm_print_headline | bash -s stable --ruby
     - source /usr/local/rvm/scripts/rvm
     - gem install puppet --no-document
-    - puppet module install puppetlabs/image_build
+    - rm -fR /etc/puppetlabs/code/modules/image_build
+    - git clone --single-branch --branch v2 https://github.com/luckyraul/puppetlabs-image_build.git /etc/puppetlabs/code/modules/image_build
     - puppet docker build --image-name mygento/php:$PHP_TAG --no-show-diff
   pre_ci_boot:
     image_name: mygento/php
