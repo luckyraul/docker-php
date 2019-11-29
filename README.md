@@ -33,3 +33,10 @@ Docker image for PHP system's
 7.3-fpm [![](https://images.microbadger.com/badges/image/mygento/php:7.3-fpm.svg)](https://microbadger.com/images/mygento/php:7.3-fpm)
 
 7.3-full [![](https://images.microbadger.com/badges/image/mygento/php:7.3-full.svg)](https://microbadger.com/images/mygento/php:7.3-full)
+
+
+7.4 [![](https://images.microbadger.com/badges/image/mygento/php:7.4.svg)](https://microbadger.com/images/mygento/php:7.4)
+
+7.4-fpm [![](https://images.microbadger.com/badges/image/mygento/php:7.4-fpm.svg)](https://microbadger.com/images/mygento/php:7.4-fpm)
+
+7.4-full [![](https://images.microbadger.com/badges/image/mygento/php:7.4-full.svg)](https://microbadger.com/images/mygento/php:7.4-full)

@@ -1,0 +1,5 @@
+php::globals::php_version: '7.4'
+php::manage_repos: true
+php::settings:
+  'PHP':
+    'max_input_vars': 5000
