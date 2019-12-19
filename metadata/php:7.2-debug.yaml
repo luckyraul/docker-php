@@ -3,5 +3,3 @@ image_name: mygento/php:7.2-debug
 cmd: php-fpm7.2
 env:
   - DEBIAN_FRONTEND=noninteractive
-  - NR_INSTALL_KEY=''
-  - NR_INSTALL_APP='PHP Application'

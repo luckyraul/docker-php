@@ -1,6 +1,5 @@
 env:
   matrix:
-    - PHP_TAG='7.2-debug'
     - PHP_TAG='7.3-full'
     - PHP_TAG='7.4-full'
     - PHP_TAG='7.2-full'
@@ -10,6 +9,9 @@ env:
     - PHP_TAG='7.3'
     - PHP_TAG='7.2'
     - PHP_TAG='7.4'
+    - PHP_TAG='7.2-debug'
+    - PHP_TAG='7.3-debug'
+    - PHP_TAG='7.4-debug'
     - PHP_TAG='7.1-full'
     - PHP_TAG='7.0-full'
     - PHP_TAG='7.1-fpm'
@@ -19,8 +21,6 @@ env:
     - PHP_TAG='5.6'
     - PHP_TAG='5.6-fpm'
     - PHP_TAG='5.6-full'
-    # - PHP_TAG='7.3-debug'
-    # - PHP_TAG='7.4-debug'
 build:
   pre_ci:
     - apt-get install -qqy curl
