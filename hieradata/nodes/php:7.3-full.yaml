@@ -2,7 +2,7 @@ php::globals::php_version: '7.3'
 php::manage_repos: true
 php::dev: true
 php::pear: true
-php::ioncube: true
+php::ioncube: false #no need
 php::newrelic: true
 php::extensions:
   redis:
