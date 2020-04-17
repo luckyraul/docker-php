@@ -1,7 +1,0 @@
-from: debian:jessie-slim
-image_name: mygento/php:5.6-full
-cmd: php5-fpm
-env:
-  - DEBIAN_FRONTEND=noninteractive
-  - NR_INSTALL_KEY=''
-  - NR_INSTALL_APP='PHP Application'

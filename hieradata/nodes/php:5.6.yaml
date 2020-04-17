@@ -1,7 +1,0 @@
-php::globals::php_version: '5.6'
-php::packages: ['mysql','mcrypt','json','intl','curl','gd','geoip','xsl']
-php::manage_repos: false
-php::fpm: false
-php::extensions:
-  soap:
-    prefix: 'php-'

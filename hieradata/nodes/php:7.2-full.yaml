@@ -1,5 +1,4 @@
 php::globals::php_version: '7.2'
-php::manage_repos: true
 php::dev: true
 php::pear: true
 php::ioncube: true
@@ -7,7 +6,4 @@ php::newrelic: true
 php::extensions:
   redis:
     provider: 'pecl'
-    ensure: '4.3.0'
-php::settings:
-  'PHP':
-    'max_input_vars': 5000
+    ensure: '5.2.1'

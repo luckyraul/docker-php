@@ -1,9 +1,0 @@
-php::globals::php_version: '5.6'
-php::packages: ['mysql','mcrypt','json','intl','curl','gd','geoip','xsl']
-php::manage_repos: false
-php::extensions:
-  soap:
-    prefix: 'php-'
-php::settings:
-  'PHP':
-    'max_input_vars': 5000

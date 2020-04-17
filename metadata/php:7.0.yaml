@@ -1,2 +1,0 @@
-from: debian:stretch-slim
-image_name: mygento/php:7.0

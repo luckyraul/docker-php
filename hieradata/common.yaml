@@ -2,13 +2,19 @@
 classes:
     - 'php'
     - 'php::globals'
+
+php::manage_repos: true
 php::docker: true
 php::packages: ['mysql','mbstring','json','intl','curl','gd','xsl','zip','bcmath','soap', 'imagick']
 php::fpm_service_ensure: 'stopped'
 php::fpm_service_enable: false
+php::settings:
+  'PHP':
+    'max_input_vars': 5000
 php::fpm_service_settings:
     daemonize: 'no'
     error_log: '/proc/self/fd/2'
+    pid_file: 'nil'
 
 php::fpm::pools:
     www:
@@ -17,6 +23,6 @@ php::fpm::pools:
       access_log: '/proc/self/fd/2'
       clear_env: 'no'
       php_value:
-        memory_limit: '256M'
+        memory_limit: '512M'
         upload_max_filesize: '40M'
         post_max_size: '42M'

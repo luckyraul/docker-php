@@ -1,7 +1,0 @@
-from: debian:stretch-slim
-image_name: mygento/php:7.0-full
-cmd: php-fpm7.0
-env:
-  - DEBIAN_FRONTEND=noninteractive
-  - NR_INSTALL_KEY=''
-  - NR_INSTALL_APP='PHP Application'
