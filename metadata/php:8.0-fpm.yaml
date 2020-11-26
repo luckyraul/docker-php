@@ -1,0 +1,5 @@
+image_name: mygento/php:8.0-fpm
+cmd: php-fpm8.0
+env:
+  - DEBIAN_FRONTEND=noninteractive
+  - CODENAME=buster

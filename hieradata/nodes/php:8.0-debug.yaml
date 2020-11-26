@@ -1,8 +1,9 @@
-php::globals::php_version: '7.4'
+php::globals::php_version: '8.0'
 php::dev: true
 php::pear: true
 php::ioncube: false
 php::newrelic: false
+php::packages: ['mysql','mbstring','intl','curl','gd','xsl','zip','bcmath','soap', 'imagick', 'pgsql']
 php::extensions:
   xdebug:
     prefix: 'php-'

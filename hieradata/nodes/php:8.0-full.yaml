@@ -1,4 +1,5 @@
-php::globals::php_version: '7.4'
+php::globals::php_version: '8.0'
+php::packages: ['mysql','mbstring','intl','curl','gd','xsl','zip','bcmath','soap', 'imagick', 'pgsql']
 php::dev: true
 php::pear: true
 php::ioncube: false #no need
@@ -6,7 +7,7 @@ php::newrelic: true
 php::extensions:
   redis:
     provider: 'pecl'
-    ensure: '5.3.2'
+    ensure: '5.2.1'
 php::settings:
   'PHP':
     'max_input_vars': 5000
