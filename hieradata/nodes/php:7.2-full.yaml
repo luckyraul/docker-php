@@ -6,4 +6,4 @@ php::newrelic: true
 php::extensions:
   redis:
     provider: 'pecl'
-    ensure: '5.2.1'
+    ensure: '5.3.3'
