@@ -5,9 +5,10 @@ php::ioncube: false
 php::newrelic: false
 php::extensions:
   xdebug:
-    prefix: 'php-'
+    prefix: 'php7.4-'
     settings:
-      xdebug.mode: debug
+      zend_extension: xdebug.so
+      xdebug.mode: debug,develop
       xdebug.discover_client_host: 1
       xdebug.remote_handler: dbgp
       xdebug.show_local_vars: 0

@@ -6,14 +6,12 @@ php::newrelic: false
 php::packages: ['mysql','mbstring','intl','curl','gd','xsl','zip','bcmath','soap', 'imagick', 'pgsql']
 php::extensions:
   xdebug:
-    prefix: 'php-'
+    prefix: 'php8.0-'
     settings:
-      xdebug.remote_port: 9001
-      xdebug.remote_autostart: 0
-      xdebug.remote_connect_back: 1
-      xdebug.remote_enable: 1
+      zend_extension: xdebug.so
+      xdebug.mode: debug,develop
+      xdebug.discover_client_host: 1
       xdebug.remote_handler: dbgp
-      xdebug.idekey: netbeans-xdebug
       xdebug.show_local_vars: 0
       xdebug.cli_color: 1
       xdebug.output_buffering: off
