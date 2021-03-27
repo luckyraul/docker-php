@@ -1,4 +1,2 @@
 php::globals::php_version: '7.4'
-php::settings:
-  'PHP':
-    'max_input_vars': 5000
+php::fpm: false

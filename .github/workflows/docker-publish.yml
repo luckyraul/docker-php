@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
       matrix:
@@ -32,15 +32,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Test Ruby Version
+        run: ruby -v
       - id: install_puppet
         name: Install Puppet
         continue-on-error: true
         run: |
           sudo apt-get -qqy install git sudo ruby
-          sudo gem install puppet --no-document -v '~> 6.18.0'
+          sudo gem install puppet --no-document -v '~> 6.21.1'
           sudo rm -fR /etc/puppetlabs/code/modules/image_build
           sudo git clone --single-branch --branch v2 https://github.com/luckyraul/puppetlabs-image_build.git /etc/puppetlabs/code/modules/image_build
-
+      - name: Test Puppet Version
+        run: puppet -V
       - name: Build Image
         run: sudo puppet docker build --image-name mygento/php:${{ matrix.version }} --no-show-diff
       - name: Test Image Version
