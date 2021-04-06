@@ -1,6 +1,8 @@
 from: debian:stretch-slim
 image_name: mygento/php:7.2-full
 cmd: php-fpm7.2
+expose: 9000
+entrypoint: '/entrypoint.sh'
 env:
   - DEBIAN_FRONTEND=noninteractive
   - NR_INSTALL_KEY=''

@@ -1,5 +1,7 @@
 image_name: mygento/php:7.3-debug
 cmd: php-fpm7.3
+expose: 9000
+entrypoint: '/entrypoint.sh'
 env:
   - DEBIAN_FRONTEND=noninteractive
   - CODENAME=stretch

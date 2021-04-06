@@ -1,5 +1,7 @@
 image_name: mygento/php:8.0-full
 cmd: php-fpm8.0
+expose: 9000
+entrypoint: '/entrypoint.sh'
 env:
   - DEBIAN_FRONTEND=noninteractive
   - NR_INSTALL_KEY=''

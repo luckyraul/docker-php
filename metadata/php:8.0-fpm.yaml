@@ -1,5 +1,7 @@
 image_name: mygento/php:8.0-fpm
 cmd: php-fpm8.0
+expose: 9000
+entrypoint: '/entrypoint.sh'
 env:
   - DEBIAN_FRONTEND=noninteractive
   - CODENAME=buster
