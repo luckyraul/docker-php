@@ -16,7 +16,7 @@ php::extensions:
       xdebug.output_buffering: off
   redis:
     provider: 'pecl'
-    ensure: '5.3.3'
+    ensure: '5.3.4'
 php::settings:
   'PHP':
     'max_input_vars': 5000
