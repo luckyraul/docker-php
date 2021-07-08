@@ -1,0 +1,9 @@
+image_name: mygento/php:7.4-full-nginx
+cmd: []
+expose: 80
+entrypoint: '/init'
+env:
+  - DEBIAN_FRONTEND=noninteractive
+  - NR_INSTALL_KEY=''
+  - NR_INSTALL_APP='PHP Application'
+  - CODENAME=buster
