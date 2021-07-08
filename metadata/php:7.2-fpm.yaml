@@ -1,5 +1,0 @@
-from: debian:stretch-slim
-image_name: mygento/php:7.2-fpm
-cmd: php-fpm7.2
-expose: 9000
-entrypoint: '/entrypoint.sh'
