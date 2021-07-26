@@ -10,6 +10,7 @@ nginx::service_enable: false
 nginx::backports: false
 nginx::dotdeb: false
 nginx::docker: false
+nginx::docker_combo: true
 nginx::worker_connections: 2048
 nginx::daemon_mode: 'off'
 
