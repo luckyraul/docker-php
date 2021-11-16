@@ -13,20 +13,28 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - '7.3-full'
-          - '7.4-full'
-          - '7.3-fpm'
-          - '7.4-fpm'
-          - '7.3'
-          - '7.4'
-          - '7.3-debug'
-          - '7.4-debug'
-          - '8.0-full'
-          - '8.0-fpm'
+          - '8.1'
+          - '8.1-fpm'
+          - '8.1-full'
+          - '8.1-debug'
+          - '8.1-full-nginx'
+
           - '8.0'
+          - '8.0-fpm'
+          - '8.0-full'
           - '8.0-debug'
-          - '7.4-full-nginx'
           - '8.0-full-nginx'
+
+          - '7.3'
+          - '7.3-fpm'
+          - '7.3-full'
+          - '7.3-debug'
+
+          - '7.4'
+          - '7.4-fpm'
+          - '7.4-full'
+          - '7.4-debug'
+          - '7.4-full-nginx'
     steps:
       - uses: actions/checkout@v2
 

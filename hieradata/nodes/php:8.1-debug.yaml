@@ -1,0 +1,22 @@
+php::globals::php_version: '8.1'
+php::dev: true
+php::pear: true
+php::ioncube: false
+php::newrelic: false
+php::extensions:
+  xdebug:
+    prefix: 'php8.1-'
+    settings:
+      zend_extension: xdebug.so
+      xdebug.mode: debug,develop
+      xdebug.discover_client_host: 1
+      xdebug.remote_handler: dbgp
+      xdebug.show_local_vars: 0
+      xdebug.cli_color: 1
+      xdebug.output_buffering: off
+  redis:
+    provider: 'pecl'
+    ensure: '5.3.4'
+php::settings:
+  'PHP':
+    'max_input_vars': 5000
