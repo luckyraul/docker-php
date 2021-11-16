@@ -17,6 +17,7 @@ nginx::daemon_mode: 'off'
 php::docker: false
 php::docker_combo: true
 php::globals::php_version: '7.4'
+php::packages: ['mysql','mbstring','json','intl','curl','gd','xsl','zip','bcmath','soap', 'imagick', 'pgsql']
 php::dev: true
 php::pear: true
 php::ioncube: false #no need

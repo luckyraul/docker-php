@@ -3,7 +3,6 @@ php::dev: true
 php::pear: true
 php::ioncube: false
 php::newrelic: false
-php::packages: ['mysql','mbstring','intl','curl','gd','xsl','zip','bcmath','soap', 'imagick', 'pgsql']
 php::extensions:
   xdebug:
     prefix: 'php8.0-'

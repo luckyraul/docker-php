@@ -1,3 +1,2 @@
 php::globals::php_version: '8.0'
-php::packages: ['mysql','mbstring','intl','curl','gd','xsl','zip','bcmath','soap', 'imagick', 'pgsql']
 php::fpm: false
