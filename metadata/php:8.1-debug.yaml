@@ -4,4 +4,4 @@ expose: 9000
 entrypoint: '/entrypoint.sh'
 env:
   - DEBIAN_FRONTEND=noninteractive
-  - CODENAME=buster
+  - CODENAME=bullseye

@@ -1,4 +1,4 @@
 image_name: mygento/php:8.1
 env:
   - DEBIAN_FRONTEND=noninteractive
-  - CODENAME=buster
+  - CODENAME=bullseye

@@ -1,4 +1,4 @@
-from: debian:buster-slim
+from: debian:bullseye-slim
 cmd: /usr/bin/php -a
 maintainer: nikita@mygento.ru
 inventory: false

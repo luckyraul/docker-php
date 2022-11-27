@@ -25,11 +25,6 @@ jobs:
           - '8.0-debug'
           - '8.0-full-nginx'
 
-          - '7.3'
-          - '7.3-fpm'
-          - '7.3-full'
-          - '7.3-debug'
-
           - '7.4'
           - '7.4-fpm'
           - '7.4-full'

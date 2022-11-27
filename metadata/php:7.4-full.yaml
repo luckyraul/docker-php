@@ -1,3 +1,4 @@
+from: debian:buster-slim
 image_name: mygento/php:7.4-full
 cmd: php-fpm7.4
 expose: 9000
