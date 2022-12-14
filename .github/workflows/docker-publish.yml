@@ -8,11 +8,17 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
       matrix:
         version:
+          - '8.2'
+          - '8.2-fpm'
+          - '8.2-full'
+          - '8.2-debug'
+          - '8.2-full-nginx'
+
           - '8.1'
           - '8.1-fpm'
           - '8.1-full'
@@ -40,7 +46,7 @@ jobs:
         continue-on-error: true
         run: |
           sudo apt-get -qqy install git sudo ruby
-          sudo gem install puppet --no-document -v '~> 6.21.1'
+          sudo gem install puppet --no-document
           sudo rm -fR /etc/puppetlabs/code/modules/image_build
           sudo git clone --single-branch --branch v2 https://github.com/luckyraul/puppetlabs-image_build.git /etc/puppetlabs/code/modules/image_build
       - name: Test Puppet Version
@@ -85,3 +91,22 @@ jobs:
 
           docker tag $IMAGE_NAME $IMAGE_ID
           docker push $IMAGE_ID
+  post_build:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete untagged ghcr LR
+        uses: Chizkiyahu/delete-untagged-ghcr-action@v2
+        with:
+          token: ${{ secrets.CR_PAT }}
+          repository_owner: ${{ github.repository_owner }}
+          owner_type: user
+          package_name: php
+      - name: Delete untagged ghcr Mygento
+        uses: Chizkiyahu/delete-untagged-ghcr-action@v2
+        with:
+          token: ${{ secrets.CR_PAT }}
+          repository_owner: mygento
+          owner_type: org
+          package_name: php
+

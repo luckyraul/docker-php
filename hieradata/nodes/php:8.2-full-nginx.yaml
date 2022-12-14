@@ -16,14 +16,13 @@ nginx::daemon_mode: 'off'
 
 php::docker: false
 php::docker_combo: true
-php::globals::php_version: '8.0'
-php::dev: true
-php::pear: true
-php::newrelic: true
+php::globals::php_version: '8.2'
+php::dev: false
+php::pear: false
+php::newrelic: false #not available
 php::extensions:
   redis:
-    provider: 'pecl'
-    ensure: '5.3.4'
+    prefix: 'php8.2-'
 php::settings:
   'PHP':
     'max_input_vars': 5000

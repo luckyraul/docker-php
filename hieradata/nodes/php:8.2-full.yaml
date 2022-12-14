@@ -1,0 +1,10 @@
+php::globals::php_version: '8.2'
+php::dev: false
+php::pear: false
+php::newrelic: false #not available
+php::extensions:
+  redis:
+    prefix: 'php8.2-'
+php::settings:
+  'PHP':
+    'max_input_vars': 5000

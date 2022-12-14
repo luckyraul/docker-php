@@ -1,11 +1,10 @@
-php::globals::php_version: '7.4'
-php::dev: true
-php::pear: true
+php::globals::php_version: '8.2'
+php::dev: false
+php::pear: false
 php::newrelic: false
-php::packages: ['mysql','mbstring','json','intl','curl','gd','xsl','zip','bcmath','soap', 'imagick', 'pgsql']
 php::extensions:
   xdebug:
-    prefix: 'php7.4-'
+    prefix: 'php8.2-'
     settings:
       zend_extension: xdebug.so
       xdebug.mode: debug,develop
@@ -15,8 +14,7 @@ php::extensions:
       xdebug.cli_color: 1
       xdebug.output_buffering: off
   redis:
-    provider: 'pecl'
-    ensure: '5.3.4'
+    prefix: 'php8.2-'
 php::settings:
   'PHP':
     'max_input_vars': 5000

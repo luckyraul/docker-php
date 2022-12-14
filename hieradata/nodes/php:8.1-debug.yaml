@@ -1,7 +1,6 @@
 php::globals::php_version: '8.1'
 php::dev: true
 php::pear: true
-php::ioncube: false
 php::newrelic: false
 php::extensions:
   xdebug:
