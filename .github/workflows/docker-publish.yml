@@ -13,9 +13,9 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - '8.2'
-          - '8.2-fpm'
-          - '8.2-full'
+          # - '8.2'
+          # - '8.2-fpm'
+          # - '8.2-full'
           - '8.2-debug'
           - '8.2-full-nginx'
 
@@ -109,4 +109,3 @@ jobs:
           repository_owner: mygento
           owner_type: org
           package_name: php
-

@@ -13,11 +13,11 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - '8.1'
-          - '8.1-fpm'
-          - '8.1-full'
-          - '8.1-debug'
-          - '8.1-full-nginx'
+          - '8.2'
+          - '8.2-fpm'
+          - '8.2-full'
+          # - '8.2-debug'
+          # - '8.2-full-nginx'
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1
@@ -38,43 +38,43 @@ jobs:
       - name: Build Image
         run: |
           for arch in amd64 arm64 ; do
-              sudo puppet docker build --image-name mygento/php:${{ matrix.version }} --no-show-diff --native --buildkit --platform $arch --output "type=docker" --debug
+              sudo puppet docker build --image-name mygento/php:${{ matrix.version }}-$arch --no-show-diff --native --buildkit --platform linux/$arch --load --debug
           done
-      - name: Test Image Version
-        run: docker run --rm mygento/php:${{ matrix.version }} php -v
+      - name: Test Image Version Amd64
+        run: docker run --rm mygento/php:${{ matrix.version }}-amd64 php -v
+      - name: Test Image Version Arm64
+        run: docker run --rm mygento/php:${{ matrix.version }}-arm64 php -v
       - name: Test Image Modules
-        run: docker run --rm mygento/php:${{ matrix.version }} php -m
+        run: docker run --rm mygento/php:${{ matrix.version }}-amd64 php -m
       - name: Test Image Config
-        run: docker run --rm mygento/php:${{ matrix.version }} php -i
-      #
-      # - name: Login to GitHub Container Registry
-      #   uses: docker/login-action@v1
-      #   with:
-      #     registry: ghcr.io
-      #     username: ${{ github.repository_owner }}
-      #     password: ${{ secrets.CR_PAT }}
-      #
-      # - name: Push image
-      #   run: |
-      #     export IMAGE_NAME=mygento/php:${{ matrix.version }}
-      #     export IMAGE_ID=ghcr.io/luckyraul/php:${{ matrix.version }}
-      #
-      #     # Change all uppercase to lowercase
-      #     export IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-      #
-      #     echo $IMAGE_ID
-      #
-      #     docker tag $IMAGE_NAME $IMAGE_ID
-      #     docker push $IMAGE_ID
-      # - name: Push image Mygento
-      #   run: |
-      #     export IMAGE_NAME=mygento/php:${{ matrix.version }}
-      #     export IMAGE_ID=ghcr.io/mygento/php:${{ matrix.version }}
-      #
-      #     # Change all uppercase to lowercase
-      #     export IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-      #
-      #     echo $IMAGE_ID
-      #
-      #     docker tag $IMAGE_NAME $IMAGE_ID
-      #     docker push $IMAGE_ID
+        run: docker run --rm mygento/php:${{ matrix.version }}-amd64 php -i
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
+      - name: Retag Images
+        run: |
+          docker tag mygento/php:${{ matrix.version }}-amd64 ghcr.io/luckyraul/php:${{ matrix.version }}-amd64
+          docker tag mygento/php:${{ matrix.version }}-arm64 ghcr.io/luckyraul/php:${{ matrix.version }}-arm64
+      - name: Push Images
+        run: |
+          docker push ghcr.io/luckyraul/php:${{ matrix.version }}-amd64
+          docker push ghcr.io/luckyraul/php:${{ matrix.version }}-arm64
+      - name: Create Manifest
+        run: |
+          docker manifest create ghcr.io/luckyraul/php:${{ matrix.version }} --amend ghcr.io/luckyraul/php:${{ matrix.version }}-arm64 --amend ghcr.io/luckyraul/php:${{ matrix.version }}-amd64
+          docker manifest push ghcr.io/luckyraul/php:${{ matrix.version }}
+      - name: Retag Images Mygento
+        run: |
+          docker tag ghcr.io/luckyraul/php:${{ matrix.version }}-amd64 ghcr.io/mygento/php:${{ matrix.version }}-amd64
+          docker tag ghcr.io/luckyraul/php:${{ matrix.version }}-arm64 ghcr.io/mygento/php:${{ matrix.version }}-arm64
+      - name: Push Images Mygento
+        run: |
+          docker push ghcr.io/mygento/php:${{ matrix.version }}-amd64
+          docker push ghcr.io/mygento/php:${{ matrix.version }}-arm64
+      - name: Create Manifest Mygento
+        run: |
+          docker manifest create ghcr.io/mygento/php:${{ matrix.version }} --amend ghcr.io/mygento/php:${{ matrix.version }}-arm64 --amend ghcr.io/mygento/php:${{ matrix.version }}-amd64
+          docker manifest push ghcr.io/mygento/php:${{ matrix.version }}

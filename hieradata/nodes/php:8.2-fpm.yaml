@@ -2,3 +2,5 @@ php::globals::php_version: '8.2'
 php::settings:
   'PHP':
     'max_input_vars': 5000
+
+php::manage_repos: false
