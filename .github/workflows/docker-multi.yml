@@ -30,7 +30,7 @@ jobs:
         continue-on-error: true
         run: |
           sudo apt-get -qqy install git sudo ruby
-          sudo gem install puppet --no-document
+          sudo gem install puppet -v 7.24.0 --no-document
           sudo rm -fR /etc/puppetlabs/code/modules/image_build
           sudo git clone --single-branch --branch v2 https://github.com/luckyraul/puppetlabs-image_build.git /etc/puppetlabs/code/modules/image_build
       - name: Test Puppet Version
