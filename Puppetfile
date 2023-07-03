@@ -3,7 +3,7 @@ forge "https://forgeapi.puppetlabs.com"
 mod 'puppetlabs/dummy_service'
 mod 'puppet/archive'
 mod 'puppetlabs/stdlib'
-mod 'puppetlabs/apt'
+mod 'puppetlabs-apt', '9.0.2'
 mod 'puppetlabs/inifile'
 mod 'luckyraul/php', :git => 'https://github.com/luckyraul/puppet-php.git'
 

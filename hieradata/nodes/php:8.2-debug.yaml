@@ -13,6 +13,8 @@ php::extensions:
       xdebug.show_local_vars: 0
       xdebug.cli_color: 1
       xdebug.output_buffering: off
+  igbinary:
+    prefix: 'php8.2-'
   redis:
     prefix: 'php8.2-'
 php::settings:

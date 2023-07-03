@@ -16,8 +16,8 @@ jobs:
           - '8.2'
           - '8.2-fpm'
           - '8.2-full'
-          # - '8.2-debug'
-          # - '8.2-full-nginx'
+          - '8.2-debug'
+          - '8.2-full-nginx'
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1

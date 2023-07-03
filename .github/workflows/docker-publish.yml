@@ -13,12 +13,6 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          # - '8.2'
-          # - '8.2-fpm'
-          # - '8.2-full'
-          - '8.2-debug'
-          - '8.2-full-nginx'
-
           - '8.1'
           - '8.1-fpm'
           - '8.1-full'

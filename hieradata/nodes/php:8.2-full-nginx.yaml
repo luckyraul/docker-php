@@ -1,10 +1,9 @@
 ---
 classes:
-    - 'php'
-    - 'php::globals'
-    - 'nginx'
+  - 'php'
+  - 'php::globals'
+  - 'nginx'
 
-nginx::backports: true
 nginx::service_ensure: 'stopped'
 nginx::service_enable: false
 nginx::backports: false
@@ -19,10 +18,10 @@ php::docker_combo: true
 php::globals::php_version: '8.2'
 php::dev: false
 php::pear: false
-php::newrelic: false #not available
-php::extensions:
-  redis:
-    prefix: 'php8.2-'
+php::newrelic: false #not available on arm
+# php::extensions:
+#   redis:
+#     prefix: 'php8.2-'
 php::settings:
   'PHP':
     'max_input_vars': 5000

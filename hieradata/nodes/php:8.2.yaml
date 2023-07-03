@@ -1,4 +1,2 @@
 php::globals::php_version: '8.2'
 php::fpm: false
-
-php::manage_repos: false
