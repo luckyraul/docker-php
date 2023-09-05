@@ -1,4 +1,5 @@
-image_name: mygento/php:8.0
+from: debian:bookworm-slim
+image_name: mygento/php:8.3
 env:
   - DEBIAN_FRONTEND=noninteractive
   - CODENAME=bullseye

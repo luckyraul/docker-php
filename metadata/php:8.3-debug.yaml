@@ -1,5 +1,6 @@
-image_name: mygento/php:8.0-debug
-cmd: php-fpm8.0
+from: debian:bookworm-slim
+image_name: mygento/php:8.3-debug
+cmd: php-fpm8.3
 expose: 9000
 entrypoint: '/entrypoint.sh'
 env:

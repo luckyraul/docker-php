@@ -1,10 +1,10 @@
-php::globals::php_version: '8.0'
-php::dev: true
-php::pear: true
+php::globals::php_version: '8.3'
+php::dev: false
+php::pear: false
 php::newrelic: false
 php::extensions:
   xdebug:
-    prefix: 'php8.0-'
+    prefix: 'php8.3-'
     settings:
       zend_extension: xdebug.so
       xdebug.mode: debug,develop
@@ -13,9 +13,10 @@ php::extensions:
       xdebug.show_local_vars: 0
       xdebug.cli_color: 1
       xdebug.output_buffering: off
+  igbinary:
+    prefix: 'php8.3-'
   redis:
-    provider: 'pecl'
-    ensure: '5.3.4'
+    prefix: 'php8.3-'
 php::settings:
   'PHP':
     'max_input_vars': 5000

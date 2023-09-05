@@ -1,0 +1,2 @@
+php::globals::php_version: '8.3'
+php::fpm: false

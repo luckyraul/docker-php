@@ -1,10 +1,9 @@
 ---
 classes:
-    - 'php'
-    - 'php::globals'
-    - 'nginx'
+  - 'php'
+  - 'php::globals'
+  - 'nginx'
 
-nginx::backports: true
 nginx::service_ensure: 'stopped'
 nginx::service_enable: false
 nginx::backports: false
@@ -16,14 +15,13 @@ nginx::daemon_mode: 'off'
 
 php::docker: false
 php::docker_combo: true
-php::globals::php_version: '8.0'
-php::dev: true
-php::pear: true
-php::newrelic: true
-php::extensions:
-  redis:
-    provider: 'pecl'
-    ensure: '5.3.4'
+php::globals::php_version: '8.3'
+php::dev: false
+php::pear: false
+php::newrelic: false #not available on arm
+# php::extensions:
+#   redis:
+#     prefix: 'php8.2-'
 php::settings:
   'PHP':
     'max_input_vars': 5000

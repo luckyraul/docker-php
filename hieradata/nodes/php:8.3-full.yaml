@@ -1,0 +1,12 @@
+php::globals::php_version: '8.3'
+php::dev: false
+php::pear: false
+php::newrelic: false #not available on arm
+php::extensions:
+  igbinary:
+    prefix: 'php8.3-'
+  redis:
+    prefix: 'php8.3-'
+php::settings:
+  'PHP':
+    'max_input_vars': 5000
