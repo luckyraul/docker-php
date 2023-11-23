@@ -1,4 +1,4 @@
-from: debian:bookworm
+from: debian:bookworm-slim
 image_name: mygento/php:8.3-full-nginx
 cmd: []
 expose: 80

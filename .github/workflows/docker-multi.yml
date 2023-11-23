@@ -43,7 +43,7 @@ jobs:
       - name: Build Image
         run: |
           for arch in amd64 arm64 ; do
-              sudo puppet docker build --image-name mygento/php:${{ matrix.version }}-$arch --no-show-diff --native --buildkit --platform linux/$arch --load --debug --no-slim
+              sudo puppet docker build --image-name mygento/php:${{ matrix.version }}-$arch --no-show-diff --native --buildkit --platform linux/$arch --load
           done
       - name: Test Image Version Amd64
         run: docker run --rm mygento/php:${{ matrix.version }}-amd64 php -v
