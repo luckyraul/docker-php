@@ -1,29 +1,43 @@
 ---
 classes:
-    - 'php'
-    - 'php::globals'
+  - 'php'
+  - 'php::globals'
 
 php::manage_repos: true
 php::docker: true
-php::packages: ['mysql','mbstring','intl','curl','gd','xsl','zip','bcmath','soap', 'imagick', 'pgsql']
+'php::packages':
+  - mysql
+  - mbstring
+  - intl
+  - curl
+  - gd
+  - xsl
+  - zip
+  - bcmath
+  - soap
+  - imagick
+  - pgsql
 php::fpm_service_ensure: 'stopped'
 php::fpm_service_enable: false
 php::settings:
   'PHP':
     'max_input_vars': 5000
+
 php::fpm_service_settings:
-    daemonize: 'no'
-    error_log: '/proc/self/fd/2'
-    pid_file: 'nil'
+  daemonize: 'no'
+  error_log: '/proc/self/fd/2'
+  pid_file: 'nil'
 
 php::fpm::pools:
-    www:
-      listen: '[::]:9000'
-      catch_workers_output: 'yes'
-      decorate_workers_output: 'no'
-      access_log: '/proc/self/fd/2'
-      clear_env: 'no'
-      php_value:
-        memory_limit: '512M'
-        upload_max_filesize: '40M'
-        post_max_size: '42M'
+  www:
+    listen: '[::]:9000'
+    catch_workers_output: 'yes'
+    decorate_workers_output: 'no'
+    access_log: '/proc/self/fd/2'
+    access_log_format: >
+      '{"@timestamp":"%{literal('%')}{%Y-%m-%dT%H:%M:%S%z}T","remote_addr":"%R","remote_user":"%u","request_method":"%m","request_uri":"%{literal('%')}{REQUEST_URI}e","status":"%s","request_length":"%l","request_time":"%d","http_referrer":"%{literal('%')}{HTTP_REFERER}e","http_user_agent":"%{literal('%')}{HTTP_USER_AGENT}e","http_x_forwarded_for":"%{literal('%')}{HTTP_X_FORWARDED_FOR}e","request_id":"%{literal('%')}{HTTP_X_REQUEST_ID}e","cpu":"%C","memory":"%{literal('%')}{megabytes}MM"}'
+    clear_env: 'no'
+    php_value:
+      memory_limit: '512M'
+      upload_max_filesize: '40M'
+      post_max_size: '42M'
