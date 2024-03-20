@@ -53,29 +53,20 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
-
       - name: Push image
         run: |
           export IMAGE_NAME=mygento/php:${{ matrix.version }}
           export IMAGE_ID=ghcr.io/luckyraul/php:${{ matrix.version }}
-
           # Change all uppercase to lowercase
           export IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-
-          echo $IMAGE_ID
-
           docker tag $IMAGE_NAME $IMAGE_ID
           docker push $IMAGE_ID
       - name: Push image Mygento
         run: |
           export IMAGE_NAME=mygento/php:${{ matrix.version }}
           export IMAGE_ID=ghcr.io/mygento/php:${{ matrix.version }}
-
           # Change all uppercase to lowercase
           export IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-
-          echo $IMAGE_ID
-
           docker tag $IMAGE_NAME $IMAGE_ID
           docker push $IMAGE_ID
   post_build:
