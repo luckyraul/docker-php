@@ -4,6 +4,7 @@ classes:
   - 'php::globals'
 
 php::manage_repos: true
+php::repo_mirror: true
 php::docker: true
 'php::packages':
   - mysql

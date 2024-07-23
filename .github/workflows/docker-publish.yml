@@ -18,11 +18,6 @@ jobs:
           - '8.1-full'
           - '8.1-debug'
           - '8.1-full-nginx'
-          - '7.4'
-          - '7.4-fpm'
-          - '7.4-full'
-          - '7.4-debug'
-          - '7.4-full-nginx'
     steps:
       - uses: actions/checkout@v4
 

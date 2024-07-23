@@ -1,7 +1,7 @@
 php::globals::php_version: '8.2'
 php::dev: false
 php::pear: false
-php::newrelic: false #not available on arm
+php::newrelic: true #not available on arm
 php::extensions:
   igbinary:
     prefix: 'php8.2-'
