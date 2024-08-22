@@ -12,6 +12,7 @@ nginx::docker: false
 nginx::docker_combo: true
 nginx::worker_connections: 2048
 nginx::daemon_mode: 'off'
+nginx::daemon_pid: '/tmp/nginx.pid'
 
 php::docker: false
 php::docker_combo: true
