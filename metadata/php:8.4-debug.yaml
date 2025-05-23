@@ -1,0 +1,8 @@
+from: debian:bookworm-slim
+image_name: mygento/php:8.4-debug
+cmd: php-fpm8.4
+expose: 9000
+entrypoint: '/entrypoint.sh'
+env:
+  - DEBIAN_FRONTEND=noninteractive
+  - CODENAME=bullseye

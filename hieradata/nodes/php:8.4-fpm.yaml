@@ -1,0 +1,4 @@
+php::globals::php_version: '8.4'
+php::settings:
+  'PHP':
+    'max_input_vars': 5000

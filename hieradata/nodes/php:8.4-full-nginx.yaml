@@ -16,7 +16,7 @@ nginx::daemon_pid: '/tmp/nginx.pid'
 
 php::docker: false
 php::docker_combo: true
-php::globals::php_version: '8.3'
+php::globals::php_version: '8.4'
 php::dev: false
 php::pear: false
 php::newrelic: true

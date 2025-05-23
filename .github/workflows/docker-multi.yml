@@ -23,6 +23,11 @@ jobs:
           - '8.3-full'
           - '8.3-debug'
           - '8.3-full-nginx'
+          - '8.4'
+          - '8.4-fpm'
+          - '8.4-full'
+          - '8.4-debug'
+          - '8.4-full-nginx'
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-qemu-action@v3

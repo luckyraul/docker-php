@@ -19,7 +19,7 @@ php::docker_combo: true
 php::globals::php_version: '8.2'
 php::dev: false
 php::pear: false
-php::newrelic: true #not available on arm
+php::newrelic: true
 # php::extensions:
 #   redis:
 #     prefix: 'php8.2-'
