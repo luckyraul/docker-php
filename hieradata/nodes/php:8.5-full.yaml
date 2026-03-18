@@ -1,0 +1,12 @@
+php::globals::php_version: '8.5'
+php::dev: false
+php::pear: false
+php::newrelic: true
+php::extensions:
+  igbinary:
+    prefix: 'php8.5-'
+  redis:
+    prefix: 'php8.5-'
+php::settings:
+  'PHP':
+    'max_input_vars': 5000

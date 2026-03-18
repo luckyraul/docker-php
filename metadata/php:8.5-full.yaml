@@ -1,8 +1,8 @@
-from: debian:bookworm-slim
-image_name: mygento/php:8.4-full-nginx
-cmd: []
-expose: 80
-entrypoint: '/init'
+from: debian:trixie-slim
+image_name: mygento/php:8.5-full
+cmd: php-fpm8.5
+expose: 9000
+entrypoint: '/entrypoint.sh'
 env:
   - DEBIAN_FRONTEND=noninteractive
   - NR_INSTALL_KEY=''

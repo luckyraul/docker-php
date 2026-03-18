@@ -1,5 +1,5 @@
-from: debian:bookworm-slim
-image_name: mygento/php:8.4-full-nginx
+from: debian:trixie-slim
+image_name: mygento/php:8.5-full-nginx
 cmd: []
 expose: 80
 entrypoint: '/init'

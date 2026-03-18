@@ -1,8 +1,9 @@
-from: debian:bookworm-slim
-image_name: mygento/php:8.4-fpm
-cmd: php-fpm8.4
+from: debian:trixie-slim
+image_name: mygento/php:8.5-fpm
+cmd: php-fpm8.5
 expose: 9000
 entrypoint: '/entrypoint.sh'
+slim: false
 env:
   - DEBIAN_FRONTEND=noninteractive
   - CODENAME=bookworm

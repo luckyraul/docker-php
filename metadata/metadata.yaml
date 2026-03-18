@@ -2,5 +2,6 @@ from: debian:bullseye-slim
 cmd: /usr/bin/php -a
 maintainer: nikita@mygento.ru
 inventory: false
+puppet_agent_version: '8.9.0'
 env:
   - DEBIAN_FRONTEND=noninteractive

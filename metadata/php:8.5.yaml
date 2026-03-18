@@ -1,5 +1,5 @@
-from: debian:bookworm-slim
-image_name: mygento/php:8.4
+from: debian:trixie-slim
+image_name: mygento/php:8.5
 env:
   - DEBIAN_FRONTEND=noninteractive
   - CODENAME=bookworm
