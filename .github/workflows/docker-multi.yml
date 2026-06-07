@@ -93,3 +93,22 @@ jobs:
         run: |
           docker manifest create ghcr.io/mygento/php:${{ matrix.version }} --amend ghcr.io/mygento/php:${{ matrix.version }}-arm64 --amend ghcr.io/mygento/php:${{ matrix.version }}-amd64
           docker manifest push ghcr.io/mygento/php:${{ matrix.version }}
+  post_build:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete untagged ghcr LR
+        uses: Chizkiyahu/delete-untagged-ghcr-action@v6
+        with:
+          token: ${{ secrets.CR_PAT }}
+          repository_owner: ${{ github.repository_owner }}
+          owner_type: user
+          package_name: php
+      - name: Delete untagged ghcr Mygento
+        uses: Chizkiyahu/delete-untagged-ghcr-action@v6
+        with:
+          token: ${{ secrets.CR_PAT }}
+          repository_owner: mygento
+          owner_type: org
+          package_name: php
+          repository: ''

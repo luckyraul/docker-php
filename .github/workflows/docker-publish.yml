@@ -43,7 +43,7 @@ jobs:
         run: docker run --rm mygento/php:${{ matrix.version }} php -i
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
@@ -64,21 +64,3 @@ jobs:
           export IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
           docker tag $IMAGE_NAME $IMAGE_ID
           docker push $IMAGE_ID
-  post_build:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Delete untagged ghcr LR
-        uses: Chizkiyahu/delete-untagged-ghcr-action@v2
-        with:
-          token: ${{ secrets.CR_PAT }}
-          repository_owner: ${{ github.repository_owner }}
-          owner_type: user
-          package_name: php
-      - name: Delete untagged ghcr Mygento
-        uses: Chizkiyahu/delete-untagged-ghcr-action@v2
-        with:
-          token: ${{ secrets.CR_PAT }}
-          repository_owner: mygento
-          owner_type: org
-          package_name: php
