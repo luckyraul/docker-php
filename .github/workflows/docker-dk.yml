@@ -1,0 +1,179 @@
+name: Docker MultiArch with DK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dk
+
+jobs:
+  build-test:
+    name: Build and test PHP ${{ matrix.version }} (${{ matrix.arch }})
+    runs-on: ${{ matrix.arch == 'amd64' && 'ubuntu-26.04' || 'ubuntu-26.04-arm' }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        version:
+          - '8.5'
+          - '8.5-fpm'
+          - '8.5-full'
+          - '8.5-debug'
+          - '8.5-full-nginx'
+        arch:
+          - amd64
+          - arm64
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Test Ruby Version
+        run: ruby -v
+
+      - name: Install
+        shell: bash
+        run: |
+          set -euxo pipefail
+
+          UBUNTU_VERSION="$(lsb_release -rs)"
+          PACKAGE="openvox9-release-ubuntu${UBUNTU_VERSION}.deb"
+
+          curl -fsSLO "https://apt.voxpupuli.org/${PACKAGE}"
+          sudo dpkg -i "${PACKAGE}"
+          sudo apt-get -qq update
+          sudo apt-get install -qqy openvox-agent git
+
+          sudo rm -rf /etc/puppetlabs/code/modules/image_build
+
+          sudo git clone \
+            --single-branch \
+            --branch v3 \
+            https://github.com/luckyraul/puppetlabs-image_build.git \
+            /etc/puppetlabs/code/modules/docker
+          sudo /opt/puppetlabs/puppet/bin/gem install r10k --no-document
+          sudo /opt/puppetlabs/puppet/bin/r10k puppetfile install --moduledir ./modules
+          echo "/opt/puppetlabs/bin" >> "$GITHUB_PATH"
+
+      - name: Test Puppet Version
+        run: puppet -V
+
+      - name: Build Dockerfile
+        run: sudo /opt/puppetlabs/bin/puppet docker dockerfile --image_name php:${{ matrix.version }} > Dockerfile
+
+      # - name: Debug via SSH
+      #   if: matrix.version == '8.5' && matrix.arch == 'arm64'
+      #   uses: owenthereal/action-upterm@v2
+
+      - name: Build image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          platforms: linux/${{ matrix.arch }}
+          tags: php:test-${{ matrix.version }}-${{ matrix.arch }}
+          outputs: type=docker,dest=/tmp/image.tar
+
+      - name: Load image
+        run: docker load --input /tmp/image.tar
+
+      - name: Test PHP Version
+        run: |
+          docker run --rm \
+            php:test-${{ matrix.version }}-${{ matrix.arch }} \
+            php -v
+
+      - name: Test PHP Modules
+        run: |
+          docker run --rm \
+            php:test-${{ matrix.version }}-${{ matrix.arch }} \
+            php -m
+
+      - name: Test PHP Configuration
+        run: |
+          docker run --rm \
+            php:test-${{ matrix.version }}-${{ matrix.arch }} \
+            php -i
+
+      # - name: Upload tested image
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: image-${{ matrix.version }}-${{ matrix.arch }}
+      #     path: /tmp/image.tar
+      #     if-no-files-found: error
+      #     retention-days: 1
+  # publish:
+  #   name: Publish multi-architecture images
+  #   needs: build-test
+  #   runs-on: ubuntu-26.04
+  #   steps:
+  #     - name: Download tested images
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         pattern: image-*
+  #         path: artifacts
+  #         merge-multiple: false
+
+  #     - name: Set up Docker Buildx
+  #       uses: docker/setup-buildx-action@v4
+  #     - name: Login to GitHub Container Registry
+  #       uses: docker/login-action@v4
+  #       with:
+  #         registry: ghcr.io
+  #         username: ${{ github.repository_owner }}
+  #         password: ${{ secrets.CR_PAT }}
+  #     - name: Push tested images and create manifests
+  #       shell: bash
+  #       env:
+  #           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  #       run: |
+  #           set -euxo pipefail
+
+  #           IMAGE="${DOCKERHUB_USERNAME}/php"
+
+  #           versions=(
+  #           '8.5'
+  #           '8.5-fpm'
+  #           '8.5-full'
+  #           '8.5-debug'
+  #           '8.5-full-nginx'
+  #           )
+
+  #           for version in "${versions[@]}"; do
+  #           for arch in amd64 arm64; do
+  #               docker load \
+  #               --input "artifacts/image-${version}-${arch}/image.tar"
+
+  #               docker tag \
+  #               "php:test-${version}-${arch}" \
+  #               "${IMAGE}:${version}-${arch}"
+
+  #               docker push "${IMAGE}:${version}-${arch}"
+  #           done
+
+  #           docker buildx imagetools create \
+  #               --tag "${IMAGE}:${version}" \
+  #               "${IMAGE}:${version}-amd64" \
+  #               "${IMAGE}:${version}-arm64"
+  #           done
+  # post_publish:
+  #   needs: [publish]
+  #   runs-on: ubuntu-26.04
+  #   steps:
+  #     - name: Delete untagged ghcr LR
+  #       uses: Chizkiyahu/delete-untagged-ghcr-action@v6
+  #       with:
+  #         token: ${{ secrets.CR_PAT }}
+  #         repository_owner: ${{ github.repository_owner }}
+  #         owner_type: user
+  #         package_name: php
+  #     - name: Delete untagged ghcr Mygento
+  #       uses: Chizkiyahu/delete-untagged-ghcr-action@v6
+  #       with:
+  #         token: ${{ secrets.CR_PAT }}
+  #         repository_owner: mygento
+  #         owner_type: org
+  #         package_name: php
+  #         repository: ''
