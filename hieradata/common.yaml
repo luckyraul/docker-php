@@ -3,6 +3,7 @@ classes:
   - 'php'
   - 'php::globals'
 
+php::fpm_pool_chmod: '0644'
 php::manage_repos: true
 php::repo_mirror: true
 php::docker: true

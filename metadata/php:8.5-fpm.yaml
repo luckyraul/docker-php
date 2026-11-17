@@ -6,4 +6,3 @@ entrypoint: '/entrypoint.sh'
 slim: false
 env:
   - DEBIAN_FRONTEND=noninteractive
-  - CODENAME=bookworm

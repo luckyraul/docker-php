@@ -13,7 +13,9 @@ nginx::docker_combo: true
 nginx::worker_connections: 2048
 nginx::daemon_mode: 'off'
 nginx::daemon_pid: '/tmp/nginx.pid'
-
+nginx::access_log: '/dev/stdout'
+nginx::error_log: '/dev/stderr'
+nginx::default_port: 8080
 php::docker: false
 php::docker_combo: true
 php::globals::php_version: '8.5'

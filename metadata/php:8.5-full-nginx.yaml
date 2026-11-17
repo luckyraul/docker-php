@@ -1,10 +1,10 @@
 from: debian:trixie-slim
 image_name: mygento/php:8.5-full-nginx
 cmd: []
-expose: 80
+expose: 8080
+user: 'www-data'
 entrypoint: '/init'
 env:
   - DEBIAN_FRONTEND=noninteractive
   - NR_INSTALL_KEY=''
   - NR_INSTALL_APP='PHP Application'
-  - CODENAME=bookworm
