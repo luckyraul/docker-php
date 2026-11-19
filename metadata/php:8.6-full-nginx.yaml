@@ -1,0 +1,11 @@
+user: 'www-data'
+from: debian:trixie-slim
+image_name: mygento/php:8.6-full-nginx
+cmd: []
+expose: 8080
+user: 'www-data'
+entrypoint: '/init'
+env:
+  - DEBIAN_FRONTEND=noninteractive
+  - NR_INSTALL_KEY=''
+  - NR_INSTALL_APP='PHP Application'

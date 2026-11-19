@@ -20,6 +20,11 @@ jobs:
           - '8.5-full'
           - '8.5-debug'
           - '8.5-full-nginx'
+          - '8.6'
+          - '8.6-fpm'
+          - '8.6-full'
+          - '8.6-debug'
+          - '8.6-full-nginx'
         arch:
           - amd64
           - arm64
@@ -141,6 +146,11 @@ jobs:
             '8.5-full'
             '8.5-debug'
             '8.5-full-nginx'
+            '8.6'
+            '8.6-fpm'
+            '8.6-full'
+            '8.6-debug'
+            '8.6-full-nginx'
             )
 
             for version in "${versions[@]}"; do

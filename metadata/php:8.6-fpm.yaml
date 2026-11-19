@@ -1,0 +1,9 @@
+user: 'www-data'
+from: debian:trixie-slim
+image_name: mygento/php:8.6-fpm
+cmd: php-fpm8.6
+expose: 9000
+entrypoint: '/entrypoint.sh'
+slim: false
+env:
+  - DEBIAN_FRONTEND=noninteractive

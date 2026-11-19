@@ -1,0 +1,4 @@
+image_name: mygento/php:8.6
+user: 'www-data'
+env:
+  - DEBIAN_FRONTEND=noninteractive
